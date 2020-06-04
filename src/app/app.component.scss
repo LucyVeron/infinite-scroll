@@ -1,0 +1,10 @@
+.waterfall {
+  margin: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  & img {
+    margin: 1rem;
+    position: relative;
+    border-radius: 4px;
+  }
+}
