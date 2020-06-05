@@ -11,7 +11,7 @@ export class GifService {
 
   constructor(private http: HttpClient) { }
 
-  public fetchGifs(): Observable<any> {
-    return this.http.get(`http://api.giphy.com/v1/gifs/search?q=internet&api_key=${API_KEY}&limit=10`);
+  public fetchGifs(query: string): Observable<any> {
+    return this.http.get(`http://api.giphy.com/v1/gifs/search?q=${query}&api_key=${API_KEY}&limit=12`);
   }
 }

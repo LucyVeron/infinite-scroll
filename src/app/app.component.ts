@@ -10,15 +10,15 @@ export class AppComponent implements AfterContentInit {
 
   public colors: string[] = ['primary', 'accent', 'warn'];
   public gifs: any[];
+  public query: string;
 
   constructor(private gifService: GifService) { }
 
   ngAfterContentInit() {
-    this.searchGifs();
   }
 
-  public searchGifs(): void {
-    this.gifService.fetchGifs().subscribe((gifs: any) => {
+  public searchGifs(query: string): void {
+    this.gifService.fetchGifs(query).subscribe((gifs: any) => {
       this.gifs = gifs.data;
       this.gifs.forEach(element => {
         console.log(element);

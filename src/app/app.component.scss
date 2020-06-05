@@ -7,4 +7,14 @@
     position: relative;
     border-radius: 4px;
   }
+  & .search {
+    display: flex;
+    width: 100%;
+    & mat-form-field {
+      width: 100%;
+    }
+    & button {
+      margin: auto 1rem;
+    }
+  }
 }
