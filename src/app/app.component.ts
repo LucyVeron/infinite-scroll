@@ -6,7 +6,7 @@ import { GifService } from './gif.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterContentInit {
+export class AppComponent {
 
   public colors: string[] = ['primary', 'accent', 'warn'];
   public gifs: any[];
@@ -14,11 +14,9 @@ export class AppComponent implements AfterContentInit {
 
   constructor(private gifService: GifService) { }
 
-  ngAfterContentInit() {
-  }
-
   public searchGifs(query: string): void {
-    this.gifService.fetchGifs(query).subscribe((gifs: any) => {
+    this.gifService.fetchGifs(query).subscribe((gifs) => {
+      console.log(gifs);
       this.gifs = gifs.data;
       this.gifs.forEach(element => {
         console.log(element);
