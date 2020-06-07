@@ -8,12 +8,25 @@ import { GifService } from './gif.service';
 })
 export class AppComponent {
 
-  public gifs: any[];
+  public totalGifs: any[];
+  public displayedGifs: any[];
   public query: string;
+  public loadAmount = 20;
 
   constructor(private gifService: GifService) { }
 
   public searchGifs(query: string): void {
-    this.gifService.fetchGifs(query).subscribe((gifs) => this.gifs = gifs.data);
+    this.gifService.fetchGifs(query).subscribe((gifs) => {
+      this.loadAmount = 20;
+      this.totalGifs = gifs.data;
+      this.displayedGifs = gifs.data.slice(0, this.loadAmount);
+    });
+  }
+
+  public onScroll(): void {
+    if (this.displayedGifs.length !== this.totalGifs.length) {
+      this.loadAmount += 20;
+      this.displayedGifs = this.totalGifs.slice(0, this.loadAmount);
+    }
   }
 }

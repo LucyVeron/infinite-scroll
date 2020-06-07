@@ -9,9 +9,11 @@ const API_KEY = 'V05eKudYZvS3W2AFMjnFf2VR1VtGvQVY';
 })
 export class GifService {
 
+  public limit = 100;
+
   constructor(private http: HttpClient) { }
 
   public fetchGifs(query: string): Observable<any> {
-    return this.http.get(`http://api.giphy.com/v1/gifs/search?q=${query}&api_key=${API_KEY}&limit=12`);
+    return this.http.get(`http://api.giphy.com/v1/gifs/search?q=${query}&api_key=${API_KEY}&limit=${this.limit}`);
   }
 }

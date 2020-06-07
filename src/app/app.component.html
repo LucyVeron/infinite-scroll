@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">My GIFs</mat-toolbar>
-<div class="waterfall">
+<div class="waterfall" infiniteScroll [infiniteScrollDistance]="10" (scrolled)="onScroll()">
     <div class="search">
         <mat-form-field>
             <mat-label>Search GIFs</mat-label>
@@ -7,5 +7,5 @@
         </mat-form-field>
         <button mat-raised-button color="accent" (click)="searchGifs(query)">Search</button>
     </div>
-    <img class="mat-elevation-z12" *ngFor="let gif of gifs; let i=index;" src="{{gif.images.fixed_width.url}}">
+    <img class="mat-elevation-z12" *ngFor="let gif of displayedGifs; let i=index;" src="{{gif?.images.fixed_width.url}}">
 </div>

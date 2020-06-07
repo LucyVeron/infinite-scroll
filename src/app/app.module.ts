@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AppComponent } from './app.component';
     MatChipsModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
